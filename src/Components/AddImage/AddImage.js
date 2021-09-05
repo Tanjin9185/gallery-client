@@ -4,8 +4,7 @@ const AddImage = () => {
 
     const [meme, setmeme] = useState({ image: '' });
     console.log(meme);
-    // const [image, setImage] = useState(null);
-    // console.log(image);
+
 
     const handleBlur = (e) => {
         const newMeme = { ...meme };
@@ -13,11 +12,7 @@ const AddImage = () => {
         setmeme(newMeme);
     };
 
-    // const handleImage = (e) => {
-    //     const newImage = e.target.files[0];
-    //     console.log(newImage)
-    //     setImage(newImage);
-    // };
+
     const handleImage = event => {
         console.log(event.target.files[0])
         const imageData = new FormData()
@@ -38,8 +33,6 @@ const AddImage = () => {
     }
 
     const handleSubmit = (e) => {
-
-
         const newMeme = { ...meme, uploadDate: new Date().toLocaleDateString() };
         console.log(newMeme)
         fetch("http://localhost:5000/addmeme", {
@@ -63,67 +56,33 @@ const AddImage = () => {
     };
 
     return (
-        <section className="">
-
-
-            <div className="flex flex-row text-center ">
-
-
-
-
-                <div className=" container flex flex-wrap block py-4 lg:pt-0 bg-gray-900">
-                    <div className="container mx-auto px-4">
-                        <div className="flex flex-wrap justify-center md:pt-36 sm:pt-36 pt-48">
-                            <div className="w-full lg:w-6/12 px-4">
-                                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
-                                    <div className="flex-auto p-5 lg:p-10">
-
-                                        <div className="relative w-full mb-3 mt-8">
-                                            <form onSubmit={handleSubmit}>
-                                                <div className="">
-                                                    <label className="py-5">
-                                                        upload Image
-                                                    </label>
-                                                    <input
-                                                        className="border-0 px-3 py-2  placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                        onChange={handleImage}
-                                                        type="file"
-                                                        name="image"
-                                                    // required=""
-                                                    />
-                                                </div>
-                                                <div className="">
-                                                    <label className="py-5">
-                                                        Image Url
-                                                    </label>
-                                                    <textarea
-                                                        className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                                        onBlur={handleBlur}
-                                                        type="text"
-                                                        name="image"
-
-                                                    />
-                                                </div>
-
-                                                <button
-                                                    onClick={() => handleSubmit}
-                                                    class="border-2 mt-3 transition duration-500 border-gray-700 w-4/12 py-2 text-center text-xl text-gray-700 bg-transparent rounded-md focus:outline-none "
-                                                >
-                                                    Submit
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+        <section className="text-gray-600 body-font">
+            <div className="container px-5 py-24 mx-auto">
+                <div className="flex flex-col text-center w-full mb-12">
+                    <h1 className="sm:text-3xl text-2xl font-medium title-font py-4 md:mx-96 sm:mx-12 sm:border-2 mb-4 md:border-4 border-black text-gray-900">Meme Galary</h1>
+                    <p className="lg:w-2/3 mx-auto leading-relaxed text-xl underline">See Stats</p>
                 </div>
-
+                <form onSubmit={handleSubmit} className="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+                    <div class="bg-white shadow flex flex-grow w-full">
+                        <input
+                            onBlur={handleBlur}
+                            type="text"
+                            name="image"
+                            placeholder="Enter meme url"
+                            className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                        <button class="bg-yellow-400 hover:bg-purple-300 py-2 px-4">
+                            Add meme
+                        </button>
+                    </div>
+                    <div className="relative flex-grow w-full">
+                        <input onChange={handleImage}
+                            type="file"
+                            name="image" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    </div>
+                </form>
             </div>
-
         </section>
+
     );
 };
 

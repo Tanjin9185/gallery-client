@@ -9,20 +9,23 @@ import {
 import NotFound from './Components/NotFound/NotFound';
 import AddImage from './Components/AddImage/AddImage';
 import Gallery from './Components/Gallery/Gallery';
+import UploadChart from './Components/UploadChart/UploadChart';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
     <Router>
       <div>
-        {/* <Header></Header> */}
+        <Header></Header>
         <Switch>
-          <Route path="/addImage">
-            <AddImage />
+          <Route path="/chart">
+            <UploadChart></UploadChart>
           </Route>
           <Route path="/">
             <Gallery />
           </Route>
-          <Route path="home">
+          <Route path="/home">
             <Gallery />
           </Route>
 
@@ -31,6 +34,7 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
+        <Footer></Footer>
       </div>
     </Router>
   );
