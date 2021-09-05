@@ -11,7 +11,7 @@ const LoadImages = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://afternoon-citadel-62299.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => {
                 console.log("datfgfffa", data)

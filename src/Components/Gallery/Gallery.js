@@ -12,7 +12,7 @@ const Gallery = () => {
     console.log(manageImage)
 
     useEffect(() => {
-        fetch('http://localhost:5000/picturs')
+        fetch('https://afternoon-citadel-62299.herokuapp.com/picturs')
             .then(res => res.json())
             .then(data => {
                 setmanageImage(data);
@@ -21,7 +21,7 @@ const Gallery = () => {
     }, [])
 
     const handleDelete = (id) => {
-        id && fetch(`http://localhost:5000/picturs/${id}`, {
+        id && fetch(`https://afternoon-citadel-62299.herokuapp.com/picturs/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
