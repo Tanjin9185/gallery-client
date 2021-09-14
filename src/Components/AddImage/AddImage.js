@@ -35,7 +35,7 @@ const AddImage = () => {
     const handleSubmit = (e) => {
         const newMeme = { ...meme, uploadDate: new Date().toLocaleDateString() };
         console.log(newMeme)
-        fetch("https://afternoon-citadel-62299.herokuapp.com/addmeme", {
+        fetch("http://localhost:5000/addmeme", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

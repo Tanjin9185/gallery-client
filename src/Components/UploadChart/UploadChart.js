@@ -7,7 +7,7 @@ const UploadChart = () => {
     console.log('chart', manageImage)
 
     useEffect(() => {
-        fetch('https://afternoon-citadel-62299.herokuapp.com/picturs')
+        fetch('http://localhost:5000/picturs')
             .then(res => res.json())
             .then(data => {
                 setmanageImage(data);
